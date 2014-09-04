@@ -12,6 +12,8 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	private static Boolean isBeforeUpdateProcessing = false;
 	private static Boolean isAfterInsertProcessing = false;
 	private static Boolean isAfterUpdateProcessing = false; 
+	private static Boolean isBeforeDeleteProcessing = false;
+	private static Boolean isAfterDeleteProcessing = false; 
 	
 	/** 
 	* @author Hari Krishnan
@@ -24,7 +26,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void beforeInsert(TriggerParameters tp) {
 		if(!isBeforeInsertProcessing) {
 			isBeforeInsertProcessing = true;
-			execute(new Milestones1_MilestoneBeforeInsertTriggerHandler(), tp, TriggerParameters.TriggerEvent.beforeInsert);
+			execute(new Milestones1_MilestoneBeforeInsertTrigger(), tp, TriggerParameters.TriggerEvent.beforeInsert);
 			isBeforeInsertProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.beforeInsert);
@@ -41,7 +43,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void beforeUpdate(TriggerParameters tp) {
 		if(!isBeforeUpdateProcessing) {
 			isBeforeUpdateProcessing = true;
-			execute(new Milestones1_MilestoneBeforeUpdateTriggerHandler(), tp, TriggerParameters.TriggerEvent.beforeUpdate);
+			execute(new Milestones1_MilestoneBeforeUpdateTrigger(), tp, TriggerParameters.TriggerEvent.beforeUpdate);
 			isBeforeUpdateProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.beforeUpdate);
@@ -58,7 +60,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void afterInsert(TriggerParameters tp) {
 		if(!isAfterInsertProcessing) {
 			isAfterInsertProcessing = true;
-			execute(new Milestones1_MilestoneAfterInsertTriggerHandler(), tp, TriggerParameters.TriggerEvent.afterInsert);
+			execute(new Milestones1_MilestoneAfterInsertTrigger(), tp, TriggerParameters.TriggerEvent.afterInsert);
 			isAfterInsertProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.afterInsert);
@@ -75,9 +77,25 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void afterUpdate(TriggerParameters tp) {
 		if(!isAfterUpdateProcessing) {
 			isAfterUpdateProcessing = true;
-			execute(new Milestones1_MilestoneAfterUpdateTriggerHandler(), tp, TriggerParameters.TriggerEvent.afterUpdate);
+			execute(new Milestones1_MilestoneAfterUpdateTrigger(), tp, TriggerParameters.TriggerEvent.afterUpdate);
 			isAfterUpdateProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.afterUpdate);
+	}
+	public virtual override void beforeDelete(TriggerParameters tp) {
+		if(!isBeforeDeleteProcessing) {
+			isBeforeDeleteProcessing = true;
+			execute(new Milestones1_MilestoneBeforeDeleteTrigger(), tp, TriggerParameters.TriggerEvent.BeforeDelete);
+			isBeforeDeleteProcessing = false;
+		}
+		else execute(null, tp, TriggerParameters.TriggerEvent.BeforeDelete);
+	}
+	public virtual override void AfterDelete(TriggerParameters tp) {
+		if(!isAfterDeleteProcessing) {
+			isAfterDeleteProcessing = true;
+			execute(new Milestones1_MilestoneAfterDeleteTrigger(), tp, TriggerParameters.TriggerEvent.AfterDelete);
+			isafterDeleteProcessing = false;
+		}
+		else execute(null, tp, TriggerParameters.TriggerEvent.AfterDelete);
 	}
 }

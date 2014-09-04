@@ -1,4 +1,4 @@
-public class Milestone1_TaskAfterUpdateTriggerHandler extends TriggerHandlerBase {
+public class Milestone1_TaskAfterUpdateTrigger extends TriggerHandlerBase {
 	public override void mainEntry(TriggerParameters trigger) {
 	
 		Milestone1_Task_Trigger_Utility.handleTaskAfterTrigger(trigger.newList,trigger.oldList);

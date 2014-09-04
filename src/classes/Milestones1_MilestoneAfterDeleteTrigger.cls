@@ -1,6 +1,7 @@
-public class Milestones1_MilestoneBeforeDeleteTriggerHandler extends TriggerHandlerBase {
+public class Milestones1_MilestoneAfterDeleteTrigger extends TriggerHandlerBase {
 	public override void mainEntry(TriggerParameters tp) {
-		Milestone1_Milestone_Trigger_Utility.handleMilestoneDeleteTrigger(trigger.oldMap);
+		
+		 Milestone1_Milestone_Trigger_Utility.handleMilestoneAfterTrigger(trigger.oldMap);
 	}
 	
 	

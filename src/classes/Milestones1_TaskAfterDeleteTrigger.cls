@@ -1,4 +1,4 @@
-public class Milestone1_TaskBeforeInsertTriggerHandler extends TriggerHandlerBase {
+public class Milestone1_TaskBeforeInsertTrigger extends TriggerHandlerBase {
 	public override void mainEntry(TriggerParameters trigger) {
 		
 		

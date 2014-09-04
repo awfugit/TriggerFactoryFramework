@@ -1,4 +1,4 @@
-public class Milestones1_ProjectAfterUpdateTriggerHandler extends TriggerHandlerBase {
+public class Milestones1_ProjectAfterUpdateTrigger extends TriggerHandlerBase {
 	public override void mainEntry(TriggerParameters tp) {
 		Milestone1_Project_Trigger_Utility.handleKickoffDeadlineDates(Trigger.newMap, Trigger.oldMap, true);
 		BPMRollup.MilestoneToProjectRollup(trigger.new);
