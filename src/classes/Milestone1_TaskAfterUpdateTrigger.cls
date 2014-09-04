@@ -1,23 +1,23 @@
 public class Milestone1_TaskAfterUpdateTrigger extends TriggerHandlerBase {
-	public override void mainEntry(TriggerParameters trigger) {
+	public override void mainEntry(TriggerParameters tp) {
 	
-		Milestone1_Task_Trigger_Utility.handleTaskAfterTrigger(trigger.newList,trigger.oldList);
+		Milestone1_Task_Trigger_Utility.handleTaskAfterTrigger(tp.newList,tp.oldList);
         
         //Do after insert/update Rollups
         if(Test.isRunningTest() == false)
             {
-                BPMRollup.TaskToAssignmentRollup(trigger.newList);  
-                BPMRollup.TaskToMilestoneRollup(trigger.newList);   
+                BPMRollup.TaskToAssignmentRollup(tp.newList);  
+                BPMRollup.TaskToMilestoneRollup(tp.newList);   
             }
                 
         //Check for role change and if it is null or changed, doprocesstask
         
         List<Milestone1_Task__c> listTask = new List<Milestone1_Task__c>();
                  
-        for(Milestone1_Task__c a : trigger.newList)
+        for(Milestone1_Task__c a : tp.newList)
             {
                 
-                if(a.Role__c != null && a.Role__c != trigger.oldMap.get(a.Id).Role__c   )
+                if(a.Role__c != null && a.Role__c != tp.oldMap.get(a.Id).Role__c   )
                     {listTask.add(a);}
             }
                 
@@ -26,13 +26,13 @@ public class Milestone1_TaskAfterUpdateTrigger extends TriggerHandlerBase {
         	
 			
 		//shift Dates of successor Tasks if Task Due Date is shifted
-        Milestone1_Task_Trigger_Utility.checkSuccessorDependencies(trigger.oldMap, trigger.newMap);
+        Milestone1_Task_Trigger_Utility.checkSuccessorDependencies(tp.oldMap, tp.newMap);
         
 		//Check if ETC changed, and if so update the assigned work on Assignment
         SET<ID> setTaskId = new SET<ID>();
-        for(Milestone1_Task__c t : trigger.newList)
+        for(Milestone1_Task__c t : tp.newList)
             {
-                if(t.Estimated_Hours__c != trigger.oldMap.get(t.Id).Estimated_Hours__c )
+                if(t.Estimated_Hours__c != tp.oldMap.get(t.Id).Estimated_Hours__c )
                    {setTaskId.add(t.Id);}
             }
         if(setTaskId.size() > 0)
@@ -41,9 +41,9 @@ public class Milestone1_TaskAfterUpdateTrigger extends TriggerHandlerBase {
             
         //Check if due date changed and if so, update the project deadline
         setTaskId = new SET<ID>();
-        for(Milestone1_Task__c t : trigger.newList)
+        for(Milestone1_Task__c t : tp.newList)
             {
-                if(trigger.oldMap.get(t.Id).Due_Date__c != null  && t.Due_Date__c != trigger.oldMap.get(t.Id).Due_Date__c )
+                if(tp.oldMap.get(t.Id).Due_Date__c != null  && t.Due_Date__c != tp.oldMap.get(t.Id).Due_Date__c )
                     {setTaskId.add(t.Id);}
             }
             
@@ -55,7 +55,7 @@ public class Milestone1_TaskAfterUpdateTrigger extends TriggerHandlerBase {
 	
 	
 	
-	public override void inProgressEntry(TriggerParameters trigger) {
+	public override void inProgressEntry(TriggerParameters tp) {
 		System.debug('This is an example for reentrant code...');
 	}
 	

@@ -1,15 +1,15 @@
 public class Milestone1_TaskAfterInsertTrigger extends TriggerHandlerBase {
-	public override void mainEntry(TriggerParameters trigger) {
+	public override void mainEntry(TriggerParameters tp) {
 
 	
 	
-		Milestone1_Task_Trigger_Utility.handleTaskAfterTrigger(trigger.newList,trigger.oldList);
+		Milestone1_Task_Trigger_Utility.handleTaskAfterTrigger(tp.newList,tp.oldList);
         
         //Do after insert/update Rollups
         if(Test.isRunningTest() == false)
             {
-                BPMRollup.TaskToAssignmentRollup(trigger.newList);  
-                BPMRollup.TaskToMilestoneRollup(trigger.newList);   
+                BPMRollup.TaskToAssignmentRollup(tp.newList);  
+                BPMRollup.TaskToMilestoneRollup(tp.newList);   
                
             }
                 
@@ -18,7 +18,7 @@ public class Milestone1_TaskAfterInsertTrigger extends TriggerHandlerBase {
         
         List<Milestone1_Task__c> listTask = new List<Milestone1_Task__c>();
                  
-        for(Milestone1_Task__c a : trigger.newList)
+        for(Milestone1_Task__c a : tp.newList)
             {
                 if(a.Role__c != null  )
                     {listTask.add(a);}
@@ -30,7 +30,7 @@ public class Milestone1_TaskAfterInsertTrigger extends TriggerHandlerBase {
         
 	}
 	
-	public override void inProgressEntry(TriggerParameters trigger) {
+	public override void inProgressEntry(TriggerParameters tp) {
 		System.debug('This is an example for reentrant code...');
 	}
 }
