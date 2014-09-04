@@ -7,11 +7,11 @@
 *				to true before invoking the handlers and set to false after the invocation of the handlers. Resetting is MUST
 *				as otherwise unit tests MAY fail. The actual actions should be placed in the handlers (in a separate class).
 */
-public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBase {
+public class Milestone1_ProjectTriggerDispatcher extends TriggerDispatcherBase {
 	private static Boolean isBeforeInsertProcessing = false;
 	private static Boolean isBeforeUpdateProcessing = false;
 	private static Boolean isAfterInsertProcessing = false;
-	private static Boolean isAfterUpdateProcessing = false; 
+	private static Boolean isAfterUpdateProcessing = false;
 	private static Boolean isBeforeDeleteProcessing = false;
 	private static Boolean isAfterDeleteProcessing = false; 
 	
@@ -26,7 +26,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void beforeInsert(TriggerParameters tp) {
 		if(!isBeforeInsertProcessing) {
 			isBeforeInsertProcessing = true;
-			execute(new Milestones1_MilestoneBeforeInsertTrigger(), tp, TriggerParameters.TriggerEvent.beforeInsert);
+			execute(new Milestone1_ProjectBeforeInsertTrigger(), tp, TriggerParameters.TriggerEvent.beforeInsert);
 			isBeforeInsertProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.beforeInsert);
@@ -43,7 +43,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void beforeUpdate(TriggerParameters tp) {
 		if(!isBeforeUpdateProcessing) {
 			isBeforeUpdateProcessing = true;
-			execute(new Milestones1_MilestoneBeforeUpdateTrigger(), tp, TriggerParameters.TriggerEvent.beforeUpdate);
+			execute(new Milestone1_ProjectBeforeUpdateTrigger(), tp, TriggerParameters.TriggerEvent.beforeUpdate);
 			isBeforeUpdateProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.beforeUpdate);
@@ -60,7 +60,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void afterInsert(TriggerParameters tp) {
 		if(!isAfterInsertProcessing) {
 			isAfterInsertProcessing = true;
-			execute(new Milestones1_MilestoneAfterInsertTrigger(), tp, TriggerParameters.TriggerEvent.afterInsert);
+			execute(new Milestone1_ProjectAfterInsertTrigger(), tp, TriggerParameters.TriggerEvent.afterInsert);
 			isAfterInsertProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.afterInsert);
@@ -77,7 +77,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void afterUpdate(TriggerParameters tp) {
 		if(!isAfterUpdateProcessing) {
 			isAfterUpdateProcessing = true;
-			execute(new Milestones1_MilestoneAfterUpdateTrigger(), tp, TriggerParameters.TriggerEvent.afterUpdate);
+			execute(new Milestone1_ProjectAfterUpdateTrigger(), tp, TriggerParameters.TriggerEvent.afterUpdate);
 			isAfterUpdateProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.afterUpdate);
@@ -85,7 +85,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void beforeDelete(TriggerParameters tp) {
 		if(!isBeforeDeleteProcessing) {
 			isBeforeDeleteProcessing = true;
-			execute(new Milestones1_MilestoneBeforeDeleteTrigger(), tp, TriggerParameters.TriggerEvent.BeforeDelete);
+			execute(new Milestone1_MilestoneBeforeDeleteTrigger(), tp, TriggerParameters.TriggerEvent.BeforeDelete);
 			isBeforeDeleteProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.BeforeDelete);
@@ -93,7 +93,7 @@ public class Milestones1_MilestoneTriggerDispatcher extends TriggerDispatcherBas
 	public virtual override void AfterDelete(TriggerParameters tp) {
 		if(!isAfterDeleteProcessing) {
 			isAfterDeleteProcessing = true;
-			execute(new Milestones1_MilestoneAfterDeleteTrigger(), tp, TriggerParameters.TriggerEvent.AfterDelete);
+			execute(new Milestone1_MilestoneAfterDeleteTrigger(), tp, TriggerParameters.TriggerEvent.AfterDelete);
 			isafterDeleteProcessing = false;
 		}
 		else execute(null, tp, TriggerParameters.TriggerEvent.AfterDelete);

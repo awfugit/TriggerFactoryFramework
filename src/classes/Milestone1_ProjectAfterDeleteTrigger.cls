@@ -1,5 +1,5 @@
-public class Milestones1_MilestoneAfterUpdateTrigger extends TriggerHandlerBase {
-	public override void mainEntry(TriggerParameters tp) {
+public class Milestone1_MilestoneAfterUpdateTrigger extends TriggerHandlerBase {
+	public override void mainEntry(TriggerParameters trigger) {
 		Milestone1_Project_Trigger_Utility.handleAfterDeleteTrigger( trigger.old );
 		BPMRollup.MilestoneToProjectRollup(trigger.old);
 		
@@ -7,7 +7,7 @@ public class Milestones1_MilestoneAfterUpdateTrigger extends TriggerHandlerBase 
 	
 	
 	
-	public override void inProgressEntry(TriggerParameters tp) {
+	public override void inProgressEntry(TriggerParameters trigger) {
 		System.debug('This is an example for reentrant code...');
 	}
 	
