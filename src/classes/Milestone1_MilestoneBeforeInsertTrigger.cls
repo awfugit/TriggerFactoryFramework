@@ -18,7 +18,7 @@ public class Milestone1_MilestoneBeforeInsertTrigger extends TriggerHandlerBase 
 		}
 	public override void mainEntry(TriggerParameters tp) {
 	
-		tp = new TypedParameters(tpArg);
+		TypedParameters tp = new TypedParameters(tpArg);
 		Milestone1_Milestone_Trigger_Utility.handleMilestoneBeforeTrigger(tp.new, tp.newMap);
 	}
 }

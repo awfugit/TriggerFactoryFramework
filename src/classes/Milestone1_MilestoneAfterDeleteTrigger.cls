@@ -21,7 +21,7 @@ public class Milestone1_MilestoneAfterDeleteTrigger extends TriggerHandlerBase {
 	
 	public override void mainEntry(TriggerParameters tpArg) {
 		
-		tp = new TypedParameters(tpArg);
+		TypedParameters tp = new TypedParameters(tpArg);
 		
 		
 		 Milestone1_Milestone_Trigger_Utility.handleMilestoneAfterTrigger(tp.oldMap);

@@ -18,7 +18,7 @@ public class Milestone1_MilestoneBeforeUpdateTrigger extends TriggerHandlerBase 
 		
 	public override void mainEntry(TriggerParameters tp) {
 	
-		tp = new TypedParameters(tpArg);
+		TypedParameters tp = new TypedParameters(tpArg);
 		Milestone1_Milestone_Trigger_Utility.checkMilestoneManualReparent(tp.oldMap, tp.newMap);
 		
 	}
