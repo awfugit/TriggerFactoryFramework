@@ -1,4 +1,4 @@
-public class Milestone1_TaskBeforeInsertTrigger extends TriggerHandlerBase {
+public class Milestone1_TaskAfterDeleteTrigger extends TriggerHandlerBase {
 	
 	public class TypedParameters 
 		{
