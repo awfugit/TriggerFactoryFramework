@@ -3,5 +3,5 @@ trigger Milestone1_MilestoneTrigger on Milestone1_Milestone__c (after insert, af
 	if(SetTaskDates.isSetTaskDatesRunning==true)
         {return;}
 		
-	TriggerFactory.createTriggerDispatcher(Milestones1_Milestone__c.sObjectType);
+	TriggerFactory.createTriggerDispatcher(Milestone1_Milestone__c.sObjectType);
 }
