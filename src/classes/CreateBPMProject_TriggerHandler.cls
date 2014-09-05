@@ -1,10 +1,11 @@
 public with sharing class CreateBPMProject_TriggerHandler{
-		public class MyException extends Exception{}
+	
+	public class MyException extends Exception{}
 
 	public static boolean autoCreateProjectRunning=false;
 	public static boolean isAutoCreateProjectRunning(){return autoCreateProjectRunning;}
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
-          autoCreateProjectRunning=true;
+        autoCreateProjectRunning=true;
                         
         for(Apttus__APTS_Agreement__c a : agreements ){
             
@@ -34,7 +35,7 @@ public with sharing class CreateBPMProject_TriggerHandler{
 			insert pparent;
             
 			system.debug('=====' + pparent.Id);
-			if (1==1) throw new MyException('=====' + pparent.Id);
+			
 			 // create Milestone1_Milestone__c 
              
             SET<string> setPhase = new SET<string>();
