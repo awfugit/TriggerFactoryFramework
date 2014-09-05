@@ -33,7 +33,7 @@ public with sharing class CreateBPMProject_TriggerHandler{
 			insert pparent;
             
 			system.debug('=====' + pparent.Id);
-			throw new Exception('=====' + pparent.Id);
+			if (1==1) throw new MyException('=====' + pparent.Id);
 			 // create Milestone1_Milestone__c 
              
             SET<string> setPhase = new SET<string>();
