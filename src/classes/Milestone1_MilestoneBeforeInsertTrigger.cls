@@ -9,10 +9,10 @@ public class Milestone1_MilestoneBeforeInsertTrigger extends TriggerHandlerBase 
 			
 			public TypedParameters (TriggerParameters tpArg)
 			{
-				oldMap = (map<id,Milestone1_milestone__c)tpArg.oldMap;
-				newMap = (map<id,Milestone1_milestone__c)tpArg.newMap;
-				oldList = (list<Milestone1_milestone__c)tpArg.oldList;
-				newList = (list<Milestone1_milestone__c)tpArg.newList;
+				oldMap = (map<id,Milestone1_milestone__c>)tpArg.oldMap;
+				newMap = (map<id,Milestone1_milestone__c>)tpArg.newMap;
+				oldList = (list<Milestone1_milestone__c>)tpArg.oldList;
+				newList = (list<Milestone1_milestone__c>)tpArg.newList;
 				
 			}
 		}
