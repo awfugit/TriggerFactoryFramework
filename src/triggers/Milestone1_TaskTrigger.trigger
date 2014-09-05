@@ -1,9 +1,9 @@
 trigger Milestone1_TaskTrigger on Milestone1_Task__c (after insert, after update, before insert, before update) {
 	
 	
-	if(SetTaskDates.isSetTaskDatesRunning==false)
+	if(SetTaskDates.isSetTaskDatesRunning==true)
         {return;}
-    if(Milestone1_TaskAutoCreate_Helper.hasAlreadyLaunchedUpdateTrigger())
+    if(CreateBPMProject_TriggerHandler.autoCreateProjectRunning() == true)
         {return;}
     if(AssignedWorkManager.isAssignedWorkerManagerRunning==true)
         {return;}
