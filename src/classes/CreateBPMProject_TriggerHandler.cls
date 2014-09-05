@@ -9,11 +9,13 @@ public with sharing class CreateBPMProject_TriggerHandler{
             
             Milestone1_Project__c pparent = new Milestone1_Project__c();
             
-            for(Milestone1_Project__c rt: [Select Id,Baseline_Duration__c,Baseline_Effort__c From RecordType Where Name = 'Parent' AND SObjectType = 'Milestone1_Project__c']){
+			
+            for(RecordType rt: [Select Id From RecordType Where Name = 'Parent' AND SObjectType = 'Milestone1_Project__c']){
                 pparent.RecordTypeId = rt.Id;
             }
-            
-			Project_Template__c MasterProjectTemplate = [Select Id From Project_Template__c Where Master_Admin__c = true Limit 1];
+            		
+			
+			Project_Template__c MasterProjectTemplate = [Select Id,Baseline_Duration__c,Baseline_Effort__c From Project_Template__c Where Master_Admin__c = true Limit 1];
              
 				
             pparent.Name = 'Master ' + system.now().format('yyyyMMddhhmmss');
