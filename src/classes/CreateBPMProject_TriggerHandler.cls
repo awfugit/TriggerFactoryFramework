@@ -88,7 +88,7 @@ public with sharing class CreateBPMProject_TriggerHandler{
 			
 			
 			MAP<string,Id> mapMilestonePhase = new MAP<string,Id>();
-            for(Milestone1_Milestone__c mm : listM){
+            for(Milestone1_Milestone__c mm :  [Select Id, Name From Milestone1_Milestone__c Where Id IN: listM]){
                 mapMilestonePhase.put(mm.Name, mm.Id);
             }
             
