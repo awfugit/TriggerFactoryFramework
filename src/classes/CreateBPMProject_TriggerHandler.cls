@@ -1,7 +1,7 @@
 public with sharing class CreateBPMProject_TriggerHandler{
 	
 	public static boolean autoCreateProjectRunning=false;
-	//public static boolean isAutoCreateRunning(){return autoCreateProject};
+	public static boolean isAutoCreateRunning(){return autoCreateProject};
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
           autoCreateProjectRunning=true;
                         
@@ -54,7 +54,7 @@ public with sharing class CreateBPMProject_TriggerHandler{
                 Milestone1_Milestone__c mm = new Milestone1_Milestone__c();
                 
                 mm.Name = phase;
-                mm.Project__c = p.Id;
+                mm.Project__c = pparent.Id;
                 
                 if(phase.contains('Planning')){
                     mm.Sequence__c = 1;

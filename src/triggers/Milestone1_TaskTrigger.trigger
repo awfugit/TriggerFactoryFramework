@@ -3,7 +3,7 @@ trigger Milestone1_TaskTrigger on Milestone1_Task__c (after insert, after update
 	
 	if(SetTaskDates.isSetTaskDatesRunning==true)
         {return;}
-    if(CreateBPMProject_TriggerHandler.autoCreateProjectRunning == true)
+    if(CreateBPMProject_TriggerHandler.isAutoCreateProjectRunning() == true)
         {return;}
     if(AssignedWorkManager.isAssignedWorkerManagerRunning==true)
         {return;}
