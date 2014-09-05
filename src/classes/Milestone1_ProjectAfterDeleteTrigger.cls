@@ -20,7 +20,7 @@ public class Milestone1_ProjectAfterDeleteTrigger extends TriggerHandlerBase {
 	public override void mainEntry(TriggerParameters tpArg) {
 		TypedParameters tp = new TypedParameters(tpArg);
 		Milestone1_Project_Trigger_Utility.handleAfterDeleteTrigger( tp.oldList );
-		BPMRollup.MilestoneToProjectRollup(tp.old);
+		BPMRollup.MilestoneToProjectRollup(tp.oldList);
 		
 	}
 	
