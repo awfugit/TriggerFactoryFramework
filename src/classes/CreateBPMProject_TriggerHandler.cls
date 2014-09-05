@@ -1,5 +1,6 @@
 public with sharing class CreateBPMProject_TriggerHandler{
-	
+		public class MyException extends Exception{}
+
 	public static boolean autoCreateProjectRunning=false;
 	public static boolean isAutoCreateProjectRunning(){return autoCreateProjectRunning;}
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
