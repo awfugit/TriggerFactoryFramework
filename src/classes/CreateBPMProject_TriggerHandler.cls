@@ -1,14 +1,15 @@
 public with sharing class CreateBPMProject_TriggerHandler{
 	
-	public static boolean autoCreateProjectRunning=true;
+	public static boolean autoCreateProjectRunning=false;
+	//public static boolean isAutoCreateRunning(){return autoCreateProject};
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
-         
+          autoCreateProjectRunning=true;
                         
         for(Apttus__APTS_Agreement__c a : agreements ){
             
             Milestone1_Project__c pparent = new Milestone1_Project__c();
             
-            for(RecordType rt: [Select Id,Baseline_Duration__c,Baseline_Effort__c From RecordType Where Name = 'Parent' AND SObjectType = 'Milestone1_Project__c']){
+            for(Milestone1_Project__c rt: [Select Id,Baseline_Duration__c,Baseline_Effort__c From RecordType Where Name = 'Parent' AND SObjectType = 'Milestone1_Project__c']){
                 pparent.RecordTypeId = rt.Id;
             }
             
