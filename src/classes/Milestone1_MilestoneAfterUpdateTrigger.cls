@@ -8,10 +8,10 @@ public class Milestone1_MilestoneAfterUpdateTrigger extends TriggerHandlerBase {
 			
 			public TypedParameters (TriggerParameters tpArg)
 			{
-				oldMap = tpArg.oldMap;
-				newMap = tpArg.newMap;
-				oldList = tpArg.oldList;
-				newList = tpArg.newList;
+				oldMap = (map<id,Milestone1_milestone__c)tpArg.oldMap;
+				newMap = (map<id,Milestone1_milestone__c)tpArg.newMap;
+				oldList = (list<Milestone1_milestone__c)tpArg.oldList;
+				newList = (list<Milestone1_milestone__c)tpArg.newList;
 				
 			}
 		}
@@ -33,7 +33,7 @@ public class Milestone1_MilestoneAfterUpdateTrigger extends TriggerHandlerBase {
 	
 	
 	
-	public override void inProgressEntry(TriggerParameters tp) {
+	public override void inProgressEntry(TriggerParameters tpArg) {
 		
 	}
 	
