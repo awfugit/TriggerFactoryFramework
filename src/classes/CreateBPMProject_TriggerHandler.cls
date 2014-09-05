@@ -1,10 +1,9 @@
 public with sharing class CreateBPMProject_TriggerHandler{
 	
-	public static boolean autoCreateProjectRunning {get; set}
+	public static boolean autoCreateProjectRunning=true;
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
          
-        autoCreateProjectRunning = true;
-                
+                        
         for(Apttus__APTS_Agreement__c a : agreements ){
             
             Milestone1_Project__c pparent = new Milestone1_Project__c();
