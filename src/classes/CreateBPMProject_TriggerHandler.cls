@@ -1,7 +1,7 @@
 public with sharing class CreateBPMProject_TriggerHandler{
 	
 	public static boolean autoCreateProjectRunning=false;
-	public static boolean isAutoCreateRunning(){return autoCreateProjectRunning;}
+	public static boolean isAutoCreateProjectRunning(){return autoCreateProjectRunning;}
     public static void autoCreateProject( List<Apttus__APTS_Agreement__c> agreements ) {
           autoCreateProjectRunning=true;
                         
